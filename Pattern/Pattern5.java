@@ -1,3 +1,11 @@
+/*
+Java program to print the following pattern on the console
+12344321
+123**321
+12****21
+1******1
+*/
+
 import java.util.*;
 public class Pattern5
 {
