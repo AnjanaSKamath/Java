@@ -59,6 +59,7 @@ public class TestCalculator{
                        number1=sc.nextDouble();
                        System.out.println("Enter the 2nd Number: ");
                        number2=sc.nextDouble();
+
                        System.out.println("Product is " + calculator.mul(number1,number2));
                        break;
                 case 4:System.out.println("Enter the 1st Number: ");
