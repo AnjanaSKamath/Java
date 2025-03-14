@@ -1,14 +1,13 @@
 import java.util.*;
-import static java.lang.System.exit;
 
-interface CalculatorServices{
+interface CalculatorService{
     double add(double a,double b);
     double sub(double a,double b);
     double mul(double a,double b);
     double div(double a,double b);
 }
 
-abstract class AbClass implements CalculatorServices{
+abstract class AbstractCalculator implements CalculatorService{
     public double add(double a,double b)
     {
         return a+b;
@@ -19,7 +18,7 @@ abstract class AbClass implements CalculatorServices{
     }
 }
 
-class CClass extends AbClass{
+class CalculatorImpl extends AbstractCalculator{
     public double mul(double a,double b){
         return a*b;
     }
@@ -34,45 +33,45 @@ class CClass extends AbClass{
     }
 }
 
-public class Main{
+public class TestCalculator{
     public static void main(String[] args) {
-        CClass obj=new CClass();
+        CalculatorImpl calculator=new CalculatorImpl();
         Scanner sc=new Scanner(System.in);
-        double a,b;
-        int c;
+        double number1,number2;
+        int choice;
         do{
             System.out.println("\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Exit\nEnter the serial number of the operation to be performed: ");
-            c=sc.nextInt();
-            switch(c){
+            choice=sc.nextInt();
+            switch(choice){
                 case 1: System.out.println("Enter the 1st Number: ");
-                        a=sc.nextDouble();
+                        number1=sc.nextDouble();
                         System.out.println("Enter the 2nd Number: ");
-                        b=sc.nextDouble();
-                        System.out.println("Sum is " + obj.add(a,b));
+                        number2=sc.nextDouble();
+                        System.out.println("Sum is " + calculator.add(number1,number2));
                         break;
                 case 2:System.out.println("Enter the 1st Number: ");
-                       a=sc.nextDouble();
+                       number1=sc.nextDouble();
                        System.out.println("Enter the 2nd Number: ");
-                       b=sc.nextDouble();
-                       System.out.println("Difference is " + obj.sub(a,b));
+                       number2=sc.nextDouble();
+                       System.out.println("Difference is " + calculator.sub(number1,number2));
                        break;
                 case 3:System.out.println("Enter the 1st Number: ");
-                       a=sc.nextDouble();
+                       number1=sc.nextDouble();
                        System.out.println("Enter the 2nd Number: ");
-                       b=sc.nextDouble();
-                       System.out.println("Product is " + obj.mul(a,b));
+                       number2=sc.nextDouble();
+                       System.out.println("Product is " + calculator.mul(number1,number2));
                        break;
                 case 4:System.out.println("Enter the 1st Number: ");
-                       a=sc.nextDouble();
+                       number1=sc.nextDouble();
                        System.out.println("Enter the 2nd Number: ");
-                       b=sc.nextDouble();
-                       System.out.println("Quotient is " + obj.div(a,b));
+                       number2=sc.nextDouble();
+                       System.out.println("Quotient is " + calculator.div(number1,number2));
                        break;
                 case 5:System.out.println("Exiting the program.");
-                       exit(0);
+                       break;
                 default:
                       System.out.println("Please enter the right choice");
             }
-        }while(c!=5);
+        }while(choice!=5);
     }
 }
