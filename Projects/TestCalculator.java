@@ -24,8 +24,7 @@ class CalculatorImpl extends AbstractCalculator{
     }
     public double div(double a,double b){
         if (b==0){
-            System.out.println("Division by zero is not possible");
-            return 0;
+            throw new ArithmeticException();
         }
         else{
             return a/b;
@@ -66,7 +65,12 @@ public class TestCalculator{
                        number1=sc.nextDouble();
                        System.out.println("Enter the 2nd Number: ");
                        number2=sc.nextDouble();
-                       System.out.println("Quotient is " + calculator.div(number1,number2));
+                       try{
+                           System.out.println("Quotient is " + calculator.div(number1,number2));
+                       }
+                       catch(ArithmeticException e){
+                           System.out.println("Division by zero is not possible");
+                       }
                        break;
                 case 5:System.out.println("Exiting the program.");
                        break;
