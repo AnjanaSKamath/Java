@@ -1,4 +1,5 @@
 /*Program to demonstrate equals() and hashCode() methods to compare 2 objects*/
+
 import java.util.*;
 class Bird{
     String name;
